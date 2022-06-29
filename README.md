@@ -1,2 +1,2 @@
-# spellcheck
-Spell Checker
+# Custom Spell Checker
+
