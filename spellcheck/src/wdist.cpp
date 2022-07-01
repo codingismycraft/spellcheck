@@ -32,6 +32,8 @@ int word_distance(const char* psz1, const char* psz2) {
         for (size_t row = 0; row <= MAX_WORD_SIZE; ++row) BUFFER[row][0] = row;
         const size_t l1 = strlen(psz1);
         const size_t l2 = strlen(psz2);
+	if (l1 >= MAX_WORD_SIZE || l2 >= MAX_WORD_SIZE)
+	    return -1;
         int min_value;
         for (int row = 1; row <= l1; ++row) {
             const char c1 = psz1[row - 1];

@@ -1,7 +1,5 @@
 #include <Python.h>
-
 #include "wdist.h"
-
 
 static PyObject* raise_exception(PyObject* excType, const char* psz){
     PyErr_SetString(excType, psz);
@@ -9,30 +7,22 @@ static PyObject* raise_exception(PyObject* excType, const char* psz){
 
 }
 
-static PyObject* distance(PyObject* self, PyObject* args)
-{
-    char* w1 = NULL;
-    char* w2 = NULL;
+static PyObject* distance(PyObject* self, PyObject* args) {
+    char* w1 = NULL, *w2=NULL;
+    if(!PyArg_ParseTuple(args, "ss", &w1, &w2))
+        return raise_exception(PyExc_ValueError, "Invalid argumenets.");
+    const int d = word_distance(w1, w2);
+    if (d < 0)
+        return raise_exception(PyExc_ValueError, "Invalid argumenets.");
 
-    if(!PyArg_ParseTuple(args, "ss", &w1, &w2)) {
-        return NULL;
-    }
-
-    int d = word_distance(w1, w2);
     return PyLong_FromLong(d);
-
 }
 
-
-// Our Module's Function Definition struct
-// We require this `NULL` to signal the end of our method
-// definition
 static PyMethodDef myMethods[] = {
-    { "distance", distance, METH_VARARGS, "Returns words distance." },
+    { "distance", distance, METH_VARARGS, "Returns the distance of two words." },
     { NULL, NULL, 0, NULL }
 };
 
-// Our Module Definition struct
 static struct PyModuleDef wdistmodule= {
     PyModuleDef_HEAD_INIT,
     "wdistModule",
@@ -41,7 +31,6 @@ static struct PyModuleDef wdistmodule= {
     myMethods
 };
 
-// Initializes our module using our above struct
 PyMODINIT_FUNC PyInit_wdistModule(void)
 {
     return PyModule_Create(&wdistmodule);
