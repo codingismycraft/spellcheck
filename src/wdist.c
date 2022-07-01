@@ -1,6 +1,6 @@
-#include "wdist.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define MAX_WORD_SIZE 25
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))

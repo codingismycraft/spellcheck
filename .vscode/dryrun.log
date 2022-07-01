@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/john/repos/spellcheck'
+gcc -Wall -Wextra -g  -O3 -I ./include -c -o obj/wdist.o ./src/wdist.c
+gcc -Wall -Wextra -g  -O3 -I ./include -c -o obj/test_wdist.o ./tests/test_wdist.c
+gcc -o test_app obj/wdist.o obj/test_wdist.o
+make: Leaving directory '/home/john/repos/spellcheck'
+ 

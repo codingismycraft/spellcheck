@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/word_distance/dist/
+/word_distance/build/
+/spellcheck/build/
+/spellcheck/dist/

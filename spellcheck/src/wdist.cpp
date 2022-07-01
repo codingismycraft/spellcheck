@@ -22,6 +22,10 @@ static void display_grid(size_t rows, size_t cols) {
 extern "C" {
 #endif
 
+int foo(){
+	return 12;
+}
+
 int word_distance(const char* psz1, const char* psz2) {
         memset(BUFFER, 0, sizeof (BUFFER));
         for (size_t col = 0; col <= MAX_WORD_SIZE; ++col) BUFFER[0][col] = col;
