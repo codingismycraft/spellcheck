@@ -1,6 +1,8 @@
 
 from distutils.core import setup, Extension
 
+extra_compile_args = ["-std=c++11", "-Wall", "-Wextra", "-DNDEBUG", "-O3"]
+
 setup(
     name = 'wdistModule', 
     version = '0.0.1',
@@ -8,8 +10,13 @@ setup(
         Extension
         (
             'wdistModule',
-            ['./spellcheck/src/wdist.cpp', 'wdistmodule.c'],
-            include_dirs=["./spellcheck/include"]
+            [
+                './spellcheck/src/wdist.cpp', 
+                './spellcheck/src/matcher.cpp', 
+                'wdistmodule.c'
+                ],
+            include_dirs=["./spellcheck/include"],
+            extra_compile_args=extra_compile_args
         )
     ]
 )

@@ -1,13 +1,13 @@
+#include "spellcheck.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
 
-#define MAX_WORD_SIZE 25
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #define VERBOSE 0
 
 
-static char BUFFER[MAX_WORD_SIZE + 1][MAX_WORD_SIZE + 1];
+static char BUFFER[MAX_WORD_LENGTH + 1][MAX_WORD_LENGTH + 1];
 
 static void display_grid(size_t rows, size_t cols) {
     for (int row = 0; row <= rows; ++row) {
@@ -22,18 +22,14 @@ static void display_grid(size_t rows, size_t cols) {
 extern "C" {
 #endif
 
-int foo(){
-	return 12;
-}
-
-int word_distance(const char* psz1, const char* psz2) {
+    int word_distance(const char* psz1, const char* psz2) {
         memset(BUFFER, 0, sizeof (BUFFER));
-        for (size_t col = 0; col <= MAX_WORD_SIZE; ++col) BUFFER[0][col] = col;
-        for (size_t row = 0; row <= MAX_WORD_SIZE; ++row) BUFFER[row][0] = row;
+        for (size_t col = 0; col <= MAX_WORD_LENGTH; ++col) BUFFER[0][col] = col;
+        for (size_t row = 0; row <= MAX_WORD_LENGTH; ++row) BUFFER[row][0] = row;
         const size_t l1 = strlen(psz1);
         const size_t l2 = strlen(psz2);
-	if (l1 >= MAX_WORD_SIZE || l2 >= MAX_WORD_SIZE)
-	    return -1;
+        if (l1 >= MAX_WORD_LENGTH || l2 >= MAX_WORD_LENGTH)
+            return -1;
         int min_value;
         for (int row = 1; row <= l1; ++row) {
             const char c1 = psz1[row - 1];
