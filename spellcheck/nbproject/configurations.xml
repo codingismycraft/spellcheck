@@ -29,7 +29,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>static/english.txt</itemPath>
     <itemPath>static/shortdict.txt</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -57,8 +56,6 @@
       <item path="src/matcher.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/wdist.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="static/english.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="static/shortdict.txt" ex="false" tool="3" flavor2="0">
       </item>
@@ -94,8 +91,6 @@
       <item path="src/matcher.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/wdist.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="static/english.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="static/shortdict.txt" ex="false" tool="3" flavor2="0">
       </item>
